@@ -1,0 +1,25 @@
+title Tour Some Sugar On Me
+
+participant main
+participant bookings
+participant venues
+participant bands
+participant database
+
+note over main: invoke domHTML()
+main->bookings: invoke BookingsHTML()
+bookings->database: getBookings()
+database-->bookings: return bookings array
+note over bookings: generate bookingsHTML
+bookings-->main: return bookingsHTML string
+main->venues: invoke VenuesHTML()
+venues->database: getVenues()
+database-->venues: return venues array
+note over venues: generate bookingsHTML
+venues-->main: return bookingsHTML string
+main->bands: invoke BandsHTML()
+bands->database: getBands()
+database-->bands: return bands array
+note over bands: generate bookingsHTML
+bands-->main: return bookingsHTML string
+note over main: insert full domHTML string into\nindex.html

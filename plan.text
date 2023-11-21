@@ -1,0 +1,68 @@
+Which modules should you create? What is the responsibility of each?
+* main.js
+    * link to index.html and run all of the functions to update/modify the DOM
+* database.js
+    * store the original source of all of the data (venues array, bands array, bookings array)
+    * export each dataset as an array
+* venues.js
+    * import venues array
+    * add venues state to html string
+    * export html string to be used in main to modify the DOM
+* bands.js
+    * import bands array
+    * add bands state to html string
+    * export html string to be used in main to modify the DOM
+* bookings.js
+    * import bookings array
+    * add bookings state to html string
+    * export html string to be used in main to modify the DOM
+
+What functions should be in each module? What is the responsibility of each function? What should each function return?
+* main.js   
+    * return a copy of the full html string to be added to the DOM
+        * domHTML()
+        * will be invoked in main.js
+* database.js
+    * return a copy of the venues, bands, and bookings arrays so the data can be used in the corresponding modules:
+        * getVenues()
+        * getBands()
+        * getBookings()
+    * will be invoked in venues.js, bands.js, and bookings.js
+* venues.js
+    * VenuesHTML()
+        * return an html string that will update the DOM
+        * will be invoked in main.js
+* bands.js
+    * BandsHTML()
+        * return an html string that will update the DOM
+        * will be invoked in main.js
+* bookings.js
+    * BookingsHTML()
+        * return an html string that will update the DOM
+        * will be invoked in main.js
+
+In which order should you invoke your functions?
+* in venues/bands/bookings.js:
+    * getVenues() / getBands() / getBookings()
+* in main.js:
+    * domHTML()
+    * within domHTML:
+        * BookingsHTML()
+        * VenuesHTML()
+        * BandsHTMLS()
+
+Event Listeners:
+* in venues.js:
+    * when venue name is clicked, window alert that shows all of the bands that have booked that venue
+    * use for loop to find all the bookings where booking.venueId = venue.id of item clicked
+        * then nest another for loop that finds all the band names where booking.bandId = band.id
+
+* in bands.js:
+    * when band name is clicked, window alert that shows all of the venues where the band is currently booked
+    * use for loop to find all the books wehre booking.bandId = band.id of the item clicked
+    * then nest another for loop that finds all the venue names where booking.venueId = venue.id
+
+* in bookings.js:
+    * when booking is clicked, window alert that shows all the band information for that booking
+    * for loop to find the band where band.id = bookings.bandId of the item clicked
+    * display band.name \n band.genre \n band.year \n band.members
