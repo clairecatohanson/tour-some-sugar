@@ -41,6 +41,35 @@ const database = {
         { id: 6, name: "Alabama Shakes", members: ["Brittany Howard", "Zac Cockrell", "Heath Fogg", "Steve Johnson"], genre: ["Blues Rocks", "Southern Rock", "Soul"], year: 2009 },
         { id: 7, name: "Tame Impala", members: ["Kevin Parker"], genre: ["Psychedelic Pop", "Psychedelic Rock", "Indie Rock", "Synth Pop"], year: 2007 },
         { id: 8, name: "Silk Sonic", members: ["Bruno Mars", "Anderson .Paak"], genre: ["R&B", "Soul", "Funk", "Pop"], year: 2020 },
+    ],
+    bandMembers: [
+        { id: 1, firstName: "Thom", lastName: "Yorke", yearBorn: "1968", role: "vocals, guitar, keyboard", bandId: 1 },
+        { id: 2, firstName: "Johnny", lastName: "Greenwood", yearBorn: "1971", role: "guitar, keyboard", bandId: 1 },
+        { id: 3, firstName: "Colin", lastName: "Greenwood", yearBorn: "1969", role: "bass guitar, electronic instruments", bandId: 1 },
+        { id: 4, firstName: "Ed", lastName: "O'Brien", yearBorn: "1968", role: "guitars, vocals", bandId: 1 },
+        { id: 5, firstName: "Philip", lastName: "Selway", yearBorn: "1967", role: "drums", bandId: 1 },
+        { id: 6, firstName: "Anderson .Paak", lastName: "", yearBorn: "1986", role: "vocals", bandId: 2 },
+        { id: 7, firstName: "Knxwledge", lastName: "", yearBorn: "1988", role: "producer", bandId: 2 },
+        { id: 8, firstName: "Robin", lastName: "Pecknold", yearBorn: "1986", role: "vocals, guitar", bandId: 3 },
+        { id: 9, firstName: "Skyler", lastName: "Skjelset", yearBorn: "1986", role: "guitar", bandId: 3 },
+        { id: 10, firstName: "Casey", lastName: "Wescott", yearBorn: "1986", role: "keyboards, backing vocals", bandId: 3 },
+        { id: 11, firstName: "Christian", lastName: "Wargo", yearBorn: "1986", role: "bass guitar, guitar, backing vocals", bandId: 3 },
+        { id: 12, firstName: "Morgan", lastName: "Henderson", yearBorn: "1986", role: "bass, guitar, violin, percussion", bandId: 3 },
+        { id: 13, firstName: "El-P", lastName: "", yearBorn: "1975", role: "rapper, producer", bandId: 4 },
+        { id: 14, firstName: "Killer Mike", lastName: "", yearBorn: "1975", role: "rapper, producer", bandId: 4 },
+        { id: 15, firstName: "James", lastName: "Murphy", yearBorn: "1970", role: "vocals, synths, guitar, bass guitar, drums, production", bandId: 5 },
+        { id: 16, firstName: "Nancy", lastName: "Whang", yearBorn: "1977", role: "keyboards, synths, vocals", bandId: 5 },
+        { id: 17, firstName: "Pat", lastName: "Mahoney", yearBorn: "1977", role: "drums, synths, backing vocals", bandId: 5 },
+        { id: 18, firstName: "Tyler", lastName: "Pope", yearBorn: "1977", role: "bass guitar, guitar, synths", bandId: 5 },
+        { id: 19, firstName: "Al", lastName: "Doyle", yearBorn: "1980", role: "guitar, percussion, synths, bass guitar, vocals", bandId: 5 },
+        { id: 20, firstName: "Korey", lastName: "Richey", yearBorn: "1978", role: "percussion, synths, piano, backing vocals", bandId: 5 },
+        { id: 21, firstName: "Brittany", lastName: "Howard", yearBorn: "1988", role: "vocals, guitar", bandId: 6 },
+        { id: 22, firstName: "Zac", lastName: "Cockrell", yearBorn: "1988", role: "bass guitar", bandId: 6 },
+        { id: 23, firstName: "Heath", lastName: "Fogg", yearBorn: "1984", role: "guitar, backing vocals", bandId: 6 },
+        { id: 24, firstName: "Steve", lastName: "Johnson", yearBorn: "1985", role: "drums, backing vocals", bandId: 6 },
+        { id: 25, firstName: "Kevin", lastName: "Parker", yearBorn: "1986", role: "vocals, instrumentals, production", bandId: 7 },
+        { id: 26, firstName: "Bruno Mars", lastName: "", yearBorn: "1985", role: "vocals, production, guitar, piano", bandId: 8 },
+        { id: 27, firstName: "Anderson .Paak", lastName: "", yearBorn: "1986", role: "vocals, production, drums", bandId: 8 },
     ]
 }
 
@@ -54,4 +83,8 @@ export const getVenues = () => {
 
 export const getBands = () => {
     return database.bands.map(band => ({...band}))
+}
+
+export const getBandMembers = () => {
+    return database.bandMembers.map(member => ({...member}))
 }

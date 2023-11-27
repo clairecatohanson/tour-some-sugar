@@ -1,14 +1,22 @@
-import { getBands, getBookings, getVenues } from './database.js'
+import { getBands, getBookings, getVenues, getBandMembers } from './database.js'
 
 const bands = getBands()
 const bookings = getBookings()
 const venues = getVenues()
+const bandMembers = getBandMembers()
 
 document.addEventListener("click", (event) => {
     const clickedEl = event.target
     if (clickedEl.dataset.type === "band") {
         const venueNames = []
+        const bandMemberList = []
         const bandId = parseInt(clickedEl.dataset.id)
+        for (const member of bandMembers) {
+            if (member.bandId === bandId) {
+                bandMemberList.push(member)
+            }
+        }
+        
         for (const booking of bookings) {
             if (bandId === booking.bandId) {
                 for (const venue of venues) {
@@ -20,18 +28,23 @@ document.addEventListener("click", (event) => {
                 }
             }
         }
+        let bandMemberString = ''
+        for (const member of bandMemberList) {
+            bandMemberString += `${member.firstName} ${member.lastName} (${member.role})\n`
+        }
+        
         let venuesString = ''
         for (const name of venueNames) {
-            venuesString += `${name}, `
+            venuesString += `${name}\n`
         }
-        const f_venuesString = venuesString.slice(0, -2)
+
         for (const band of bands) {
             if (band.id === bandId) {
-                window.alert(`${band.name} is currently booked at the following venues:\n${f_venuesString}`)
+                window.alert(`${bandMemberString}\nUpcoming Shows:\n${venuesString}
+                `)
             }
         }
     }
-
 })
 
 export const Bands = () => {
